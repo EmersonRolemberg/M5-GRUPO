@@ -1,6 +1,6 @@
 import bd from "../infra/bd.js";
 
-const acessoriosModel = {
+const instrumentosModel = {
   modelar: (obj) => {
     return {
       id: obj.id,
@@ -13,4 +13,4 @@ const acessoriosModel = {
   };
   
   
-export default acessoriosModel;
+export default instrumentosModel;
