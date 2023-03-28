@@ -9,15 +9,16 @@ class InstrumentosDAO {
     };
   }
   static async mostrarUm(param) {
-    const dadosbd = await database.query(`SELECT * FROM instrumentos WHERE id = ?`, param);
+    const dadosbd = await database.query(`SELECT * FROM instrumentos WHERE idinstrumentos = ?`, [param]);
     return {
       dados: { msg: dadosbd },
       status: 200,
     };
   }
+  
   static async inserir(obj) {
     try {
-      await database.query("INSERT INTO instrumentos (idinstrumentos, nome,  tipo , descrição ,preço) VALUES (?,?,?,?,?)", Object.values(obj));
+      await database.query("INSERT INTO instrumentos (idinstrumentos, nome,  tipo , descricao , preco) VALUES (?,?,?,?,?)", Object.values(obj));
     } catch (error) {
       return {
         dados: { msg: "MySql error", error: error.code },
@@ -29,6 +30,7 @@ class InstrumentosDAO {
       status: 201,
     };
   }
+
   static async atualizar(id, obj) {
     try {
       if (!obj) {
@@ -37,7 +39,7 @@ class InstrumentosDAO {
           status: 400,
         };
       }     
-      await database.query("UPDATE instrumentos SET nome = ?, tipo = ?, descricao = ?, preco = ? WHERE id = ?", [
+      await database.query("UPDATE instrumentos SET nome = ?, tipo = ?, descricao = ?, preco = ? WHERE idinstrumentos = ?", [
         obj.nome,
         obj.tipo,
         obj.descricao,
@@ -60,7 +62,7 @@ class InstrumentosDAO {
 
   static async deletar(id) {
     try {
-      await database.query("DELETE FROM clientes WHERE id = ?", [id]);
+      await database.query("DELETE FROM instrumentos WHERE idinstrumentos = ?", [id]);
     } catch (error) {
       console.log(error);
       return {
