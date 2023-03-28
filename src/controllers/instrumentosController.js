@@ -8,7 +8,7 @@ import instrumentosDAO from "../DAO/instrumentosDAO.js";
       res.status(resposta.status).send(resposta.dados);
     });
     app.get("/instrumentos/id/:id", async (req, res) => {
-      const resposta = await instrumentosDAO.mostrarUm(req.params.email);
+      const resposta = await instrumentosDAO.mostrarUm(req.params.id);
       res.status(resposta.status).send(resposta.dados);
     });
     app.post("/instrumentos", async (req, res) => {
@@ -17,11 +17,11 @@ import instrumentosDAO from "../DAO/instrumentosDAO.js";
       res.status(resposta.status).send(resposta.dados);
     });
     app.delete("/instrumentos/id/:id", async(req, res) => {
-      const resposta = await instrumentosDAO.deletar(req.params.email,req.body)
+      const resposta = await instrumentosDAO.deletar(req.params.id)
       res.status(resposta.status).send(resposta.dados)
     });
     app.put("/instrumentos/id/:id", async (req, res) => {
-      const resposta = await instrumentosDAO.atualizar(req.params.email, req.body);
+      const resposta = await instrumentosDAO.atualizar(req.params.id,req.body);
       res.status(resposta.status).send(resposta.dados);
     });
   };
