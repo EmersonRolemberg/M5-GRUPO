@@ -17,7 +17,7 @@ const clientesController = (app) => {
   });
 
   app.delete("/clientes/email/:email", async(req, res) => {
-    const resposta = await clientesDAO.deletar(req.params.email,req.body)
+    const resposta = await clientesDAO.deletar(req.params.email,)
     res.status(resposta.status).send(resposta.dados)
   });
   app.put("/clientes/email/:email", async (req, res) => {
