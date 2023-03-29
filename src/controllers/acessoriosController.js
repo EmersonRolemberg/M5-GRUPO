@@ -1,4 +1,4 @@
-import acessoriosModel from "../models/acessoriosModel.js"
+import acessoriosModel from "../models/acessoriosModel";
 import acessoriosDAO from "../DAO/acessoriosDAO.js";
 
 
@@ -12,17 +12,16 @@ import acessoriosDAO from "../DAO/acessoriosDAO.js";
       res.status(resposta.status).send(resposta.dados);
     });
     app.post("/acessorios", async (req, res) => {
-      const modelado = acessoriosModel.modelar(req.body)
+      const modelado =  acessoriosModel.modelar(req.body)
       const resposta = await acessoriosDAO.inserir(modelado)
       res.status(resposta.status).send(resposta.dados);
     });
-
     app.delete("/acessorios/id/:id", async(req, res) => {
-      const resposta = await acessoriosDAO.deletar(req.params.id,req.body)
+      const resposta = await acessoriosDAO.deletar(req.params.id)
       res.status(resposta.status).send(resposta.dados)
     });
     app.put("/acessorios/id/:id", async (req, res) => {
-      const resposta = await acessoriosDAO.atualizar(req.params.id, req.body);
+      const resposta = await acessoriosDAO.atualizar(req.params.id,req.body);
       res.status(resposta.status).send(resposta.dados);
     });
   };
