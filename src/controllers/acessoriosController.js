@@ -1,4 +1,4 @@
-import acessoriosModel from "../models/acessoriosModel";
+import acessoriosModel from "../models/acessoriosModel.js";
 import acessoriosDAO from "../DAO/acessoriosDAO.js";
 
 
