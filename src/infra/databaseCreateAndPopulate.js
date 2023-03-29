@@ -14,12 +14,34 @@ database.connection.query(
 );
 
 database.connection.query(
-  "CREATE TABLE `instrumentos` (`idinstrumentos` INT NULL, `nome` VARCHAR(99) NULL, `tipo` VARCHAR(99) NULL, `descricao` VARCHAR(900) NULL, `preco` FLOAT NULL, PRIMARY KEY(`idinstrumentos`) )",
+  "CREATE TABLE `instrumentos` (`idinstrumentos` INT NULL, `nome` VARCHAR(50) NULL, `tipo` VARCHAR(12) NULL, `descricao` VARCHAR(900) NULL, `preco` FLOAT NULL, PRIMARY KEY(`idinstrumentos`) )",
   function (error, results, fields) {
     if (error) {
       console.log(error);
     } else {
       console.log("Tabela instrumentos criada com sucesso");
+    }
+  }
+);
+
+database.connection.query(
+  "CREATE TABLE `acessorios` (`idacessorios` INT NULL, `nome` VARCHAR(50) NULL, `tipo` VARCHAR(16) NULL, `descricao` VARCHAR(900) NULL, `preco` FLOAT NULL, PRIMARY KEY(`idacessorios`) )",
+  function (error, results, fields) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Tabela acessorios criada com sucesso");
+    }
+  }
+);
+
+database.connection.query(
+  "CREATE TABLE `loja (`idloja` INT NULL, `nome` VARCHAR(50) NULL, `cnpj` VARCHAR(50) NULL, `funcionarios` VARCHAR(50) NULL, `distribuidoras` VARCHAR (30) NULL, PRIMARY KEY(`idloja`) )",
+  function (error, results, fields) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Tabela loja criada com sucesso");
     }
   }
 );
@@ -46,4 +68,26 @@ database.connection.query(
   }
 );
 
+
+database.connection.query(
+  "INSERT INTO `acessorios` (`idacessorios`, `nome`, `tipo`, `descricao`, `preco`) VALUES (1, 'Espaleira Para Violino 4/4', 'Cordas','Espaleira de violino regulável ', 44.00), (2, 'Pedal MXR Analog Chorus', 'Eletrica', 'Pedal analogico com circuitos bucket-brigade', 66.00), (3, 'Baqueta 7A Nirvana ', 'Percussão', 'Baqueta de madeira ', 28.00)",
+  function (error, results, fields) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Dados inseridos na tabela acessorios com sucesso");
+    }
+  }
+);
+
+database.connection.query(
+  "INSERT INTO `loja` (`idloja`, `nome`, `cnpj`, `funcionarios`, `ditribuidora`) VALUES (1, 'TechMusic Instrumentos, '46.485.644/0001-18','Maria Dalva Camargo, Alexander Silva, Thiago Pereira','Hayamax, Izzo Musical,Soltek)",
+  function (error, results, fields) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Dados inseridos na tabela loja com sucesso");
+    }
+  }
+);
 database.connection.end();
