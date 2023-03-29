@@ -25,7 +25,7 @@ database.connection.query(
 );
 
 database.connection.query(
-  "CREATE TABLE `acessorios` (`idacessorios` INT NULL, `nome` VARCHAR(50) NULL, `tipo` VARCHAR(16) NULL, `descricao` VARCHAR(900) NULL, `preco` FLOAT NULL, PRIMARY KEY(`idacessorios`) )",
+  "CREATE TABLE `acessorios` (`idacessorios` INT NULL, `nome` VARCHAR(50) NULL, `tipo` VARCHAR(30) NULL, `descricao` VARCHAR(900) NULL, `preco` FLOAT NULL, PRIMARY KEY(`idacessorios`) )",
   function (error, results, fields) {
     if (error) {
       console.log(error);
@@ -35,16 +35,16 @@ database.connection.query(
   }
 );
 
-database.connection.query(
-  "CREATE TABLE `loja (`idloja` INT NULL, `nome` VARCHAR(50) NULL, `cnpj` VARCHAR(50) NULL, `funcionarios` VARCHAR(50) NULL, `distribuidoras` VARCHAR (30) NULL, PRIMARY KEY(`idloja`) )",
-  function (error, results, fields) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Tabela loja criada com sucesso");
-    }
-  }
-);
+// database.connection.query(
+//   "CREATE TABLE `loja` (`idloja` INT NULL, `nome` VARCHAR(50) NULL, `cnpj` VARCHAR(50) NULL, `funcionarios` VARCHAR(100) NULL, `distribuidoras` VARCHAR (100) NULL, PRIMARY KEY(`idloja`) )",
+//   function (error, results, fields) {
+//     if (error) {
+//       console.log(error);
+//     } else {
+//       console.log("Tabela loja criada com sucesso");
+//     }
+//   }
+// );
 
 database.connection.query(
   "INSERT INTO `clientes` (`idclientes`, `nome`, `email`, `senha`, `celular`) VALUES (1, 'João Silva', 'joao@gmail.com', '123456', '21987654321'), (2, 'Maria Souza', 'maria@yahoo.com', 'abcdef', '21912345678'), (3, 'Pedro Santos', 'pedro@hotmail.com', 'qwerty', '21965432109')",
@@ -80,14 +80,14 @@ database.connection.query(
   }
 );
 
-database.connection.query(
-  "INSERT INTO `loja` (`idloja`, `nome`, `cnpj`, `funcionarios`, `ditribuidora`) VALUES (1, 'TechMusic Instrumentos, '46.485.644/0001-18','Maria Dalva Camargo, Alexander Silva, Thiago Pereira','Hayamax, Izzo Musical,Soltek)",
-  function (error, results, fields) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Dados inseridos na tabela loja com sucesso");
-    }
-  }
-);
+// database.connection.query(
+//   "INSERT INTO `loja` (`idloja`, `nome`, `cnpj`, `funcionarios`, `ditribuidoras`) VALUES (1, 'TechMusic Instrumentos, '46485644000118','Maria Dalva Camargo','Hayamax)",
+//   function (error, results, fields) {
+//     if (error) {
+//       console.log(error);
+//     } else {
+//       console.log("Dados inseridos na tabela loja com sucesso");
+//     }
+//   }
+// );
 database.connection.end();
