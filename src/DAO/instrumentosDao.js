@@ -18,7 +18,7 @@ class InstrumentosDAO {
   
   static async inserir(obj) {
     try {
-      await database.query("INSERT INTO instrumentos (idinstrumentos, nome,  tipo , descricao , preco) VALUES (?,?,?,?,?)", Object.values(obj));
+      await database.query("INSERT INTO instrumentos (idinstrumentos, nome,  tipo , descricao , preco, img) VALUES (?,?,?,?,?,?)", Object.values(obj));
     } catch (error) {
       return {
         dados: { msg: "MySql error", error: error.code },
@@ -39,11 +39,12 @@ class InstrumentosDAO {
           status: 400,
         };
       }     
-      await database.query("UPDATE instrumentos SET nome = ?, tipo = ?, descricao = ?, preco = ? WHERE idinstrumentos = ?", [
+      await database.query("UPDATE instrumentos SET nome = ?, tipo = ?, descricao = ?, preco = ?, img = ? WHERE idinstrumentos = ?", [
         obj.nome,
         obj.tipo,
         obj.descricao,
         obj.preco,
+        obj.img,
         id,
       ]);
     } catch (error) {
