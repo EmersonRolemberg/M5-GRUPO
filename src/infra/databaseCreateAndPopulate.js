@@ -3,7 +3,7 @@ import database from "./bd.js";
 database.connection.connect();
 
 database.connection.query(
-  "CREATE TABLE `clientes` (`idclientes` INT NULL, `nome` VARCHAR(45) NULL, `email` VARCHAR(45) NULL, `senha` VARCHAR(45) NULL, `celular` VARCHAR(12) NULL, PRIMARY KEY(`idclientes`) )",
+  "CREATE TABLE `clientes` (`idclientes` INT NULL AUTO_INCREMENT, `nome` VARCHAR(45) NULL, `email` VARCHAR(45) NULL, `senha` VARCHAR(45) NULL, `celular` VARCHAR(12) NULL, PRIMARY KEY(`idclientes`) )",
   function (error, results, fields) {
     if (error) {
       console.log(error);
@@ -14,7 +14,7 @@ database.connection.query(
 );
 
 database.connection.query(
-  "CREATE TABLE `instrumentos` (`idinstrumentos` INT NULL, `nome` VARCHAR(50) NULL, `tipo` VARCHAR(12) NULL, `descricao` VARCHAR(900) NULL, `preco` FLOAT NULL, PRIMARY KEY(`idinstrumentos`) )",
+  "CREATE TABLE `instrumentos` (`idinstrumentos` INT NULL AUTO_INCREMENT, `nome` VARCHAR(50) NULL, `tipo` VARCHAR(12) NULL, `descricao` VARCHAR(900) NULL, `preco` FLOAT NULL, PRIMARY KEY(`idinstrumentos`) )",
   function (error, results, fields) {
     if (error) {
       console.log(error);
@@ -25,7 +25,7 @@ database.connection.query(
 );
 
 database.connection.query(
-  "CREATE TABLE `acessorios` (`idacessorios` INT NULL, `nome` VARCHAR(50) NULL, `tipo` VARCHAR(30) NULL, `descricao` VARCHAR(900) NULL, `preco` FLOAT NULL, PRIMARY KEY(`idacessorios`) )",
+  "CREATE TABLE `acessorios` (`idacessorios` INT NULL AUTO_INCREMENT, `nome` VARCHAR(50) NULL, `tipo` VARCHAR(30) NULL, `descricao` VARCHAR(900) NULL, `preco` FLOAT NULL, PRIMARY KEY(`idacessorios`) )",
   function (error, results, fields) {
     if (error) {
       console.log(error);
@@ -35,16 +35,17 @@ database.connection.query(
   }
 );
 
-// database.connection.query(
-//   "CREATE TABLE `loja` (`idloja` INT NULL, `nome` VARCHAR(50) NULL, `cnpj` VARCHAR(50) NULL, `funcionarios` VARCHAR(100) NULL, `distribuidoras` VARCHAR (100) NULL, PRIMARY KEY(`idloja`) )",
-//   function (error, results, fields) {
-//     if (error) {
-//       console.log(error);
-//     } else {
-//       console.log("Tabela loja criada com sucesso");
-//     }
-//   }
-// );
+database.connection.query(
+  "CREATE TABLE `loja` (`idloja` INT NOT NULL AUTO_INCREMENT, `nome` VARCHAR(50) NULL, `cnpj` VARCHAR(18) NULL, `funcionarios` VARCHAR(100) NULL, `distribuidoras` VARCHAR(100) NULL, PRIMARY KEY(`idloja`) )",
+  function (error, results, fields) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Tabela loja criada com sucesso");
+    }
+  }
+);
+
 
 database.connection.query(
   "INSERT INTO `clientes` (`idclientes`, `nome`, `email`, `senha`, `celular`) VALUES (1, 'João Silva', 'joao@gmail.com', '123456', '21987654321'), (2, 'Maria Souza', 'maria@yahoo.com', 'abcdef', '21912345678'), (3, 'Pedro Santos', 'pedro@hotmail.com', 'qwerty', '21965432109')",
@@ -80,14 +81,15 @@ database.connection.query(
   }
 );
 
-// database.connection.query(
-//   "INSERT INTO `loja` (`idloja`, `nome`, `cnpj`, `funcionarios`, `ditribuidoras`) VALUES (1, 'TechMusic Instrumentos, '46485644000118','Maria Dalva Camargo','Hayamax)",
-//   function (error, results, fields) {
-//     if (error) {
-//       console.log(error);
-//     } else {
-//       console.log("Dados inseridos na tabela loja com sucesso");
-//     }
-//   }
-// );
+database.connection.query(
+  "INSERT INTO `loja` (`idloja`, `nome`, `cnpj`, `funcionarios`, `distribuidoras`) VALUES (1, 'TechMusic Instrumentos', '46485644000118', 'Maria Dalva Camargo', 'Hayamax')",
+  function (error, results, fields) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Dados inseridos na tabela loja com sucesso");
+    }
+  }
+);
+
 database.connection.end();
