@@ -18,7 +18,7 @@ class acessoriosDAO {
   
   static async inserir(obj) {
     try {
-      await database.query("INSERT INTO acessorios (idacessorios, nome,  tipo , descricao , preco) VALUES (?,?,?,?,?)", Object.values(obj));
+      await database.query("INSERT INTO acessorios (idacessorios, nome,  tipo , descricao , preco, img = ?,) VALUES (?,?,?,?,?,?)", Object.values(obj));
     } catch (error) {
       return {
         dados: { msg: "MySql error", error: error.code },
