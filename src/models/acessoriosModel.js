@@ -1,15 +1,18 @@
 import bd from "../infra/bd.js";
 
-const acessoriosModel = {
+const clientesModel = {
   modelar: (obj) => {
     return {
       id: obj.id,
       nome: obj.nome,
-      tipo: obj.tipo,
-      descricao: obj.descricao,
-      preco: obj.preco
+      email: obj.email,
+      senha: obj.senha,
+      celular: obj.celular,
+      img: obj.img
+
     };
   },
-  };
-   
-export default acessoriosModel;
+};
+  
+  
+export default clientesModel;
