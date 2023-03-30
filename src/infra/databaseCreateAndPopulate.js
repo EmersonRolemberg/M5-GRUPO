@@ -25,7 +25,7 @@ database.connection.query(
 );
 
 database.connection.query(
-  "CREATE TABLE `acessorios` (`idacessorios` INT NULL AUTO_INCREMENT, `nome` VARCHAR(50) NULL, `tipo` VARCHAR(30) NULL, `descricao` VARCHAR(900) NULL, `preco` FLOAT NULL, PRIMARY KEY(`idacessorios`) )",
+  "CREATE TABLE `acessorios` (`idacessorios` INT NULL AUTO_INCREMENT, `nome` VARCHAR(50) NULL, `tipo` VARCHAR(30) NULL, `descricao` VARCHAR(900) NULL, `preco` FLOAT NULL, `img` VARCHAR(700) NULL, PRIMARY KEY(`idacessorios`) )",
   function (error, results, fields) {
     if (error) {
       console.log(error);
@@ -48,7 +48,7 @@ database.connection.query(
 
 
 database.connection.query(
-  "INSERT INTO `clientes` (`idclientes`, `nome`, `email`, `senha`, `celular`) VALUES (1, 'João Silva', 'joao@gmail.com', '123456', '21987654321'), (2, 'Maria Souza', 'maria@yahoo.com', 'abcdef', '21912345678'), (3, 'Pedro Santos', 'pedro@hotmail.com', 'qwerty', '21965432109')",
+  "INSERT INTO `clientes` (`idclientes`, `nome`, `email`, `senha`, `celular` ) VALUES (1, 'João Silva', 'joao@gmail.com', '123456', '21987654321'), (2, 'Maria Souza', 'maria@yahoo.com', 'abcdef', '21912345678'), (3, 'Pedro Santos', 'pedro@hotmail.com', 'qwerty', '21965432109')",
   function (error, results, fields) {
     if (error) {
       console.log(error);
@@ -73,7 +73,7 @@ database.connection.query(
 
 
 database.connection.query(
-  "INSERT INTO `acessorios` (`idacessorios`, `nome`, `tipo`, `descricao`, `preco`) VALUES (1, 'Espaleira Para Violino 4/4', 'Cordas','Espaleira de violino regulável ', 44.00), (2, 'Pedal MXR Analog Chorus', 'Eletrica', 'Pedal analogico com circuitos bucket-brigade', 66.00), (3, 'Baqueta 7A Nirvana ', 'Percussão', 'Baqueta de madeira ', '28.00')",
+  "INSERT INTO `acessorios` (`idacessorios`, `nome`, `tipo`, `descricao`, `preco`, `img`) VALUES (1, 'Espaleira Para Violino 4/4', 'Cordas','Espaleira de violino regulável ', 44.00, 'https://images.tcdn.com.br/img/img_prod/757946/espaleira_violino_4_4_e_3_4_lunnon_new_marrom_12941_1_e02ed3445ef3542e72ce1b8885a13b74.png'), (2, 'Pedal MXR Analog Chorus', 'Eletrica', 'Pedal analogico com circuitos bucket-brigade', 66.00, 'https://izzomusical.vteximg.com.br/arquivos/ids/157933-1000-1000/DUNLOP_8125_PEDAL_MXR_ANALOG_CHORUS_M234.MAIN.jpg?v=637600778601830000'), (3, 'Baqueta 7A Nirvana ', 'Percussão', 'Baqueta de madeira ', '28.00', 'https://m.media-amazon.com/images/I/41PSRzrnKfL._AC_SX679_.jpg')",
   function (error, results, fields) {
     if (error) {
       console.log(error);
