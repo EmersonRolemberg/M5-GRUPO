@@ -39,7 +39,7 @@ class acessoriosDAO {
           status: 400,
         };
       }     
-      await database.query("UPDATE acessorios SET nome = ?, tipo = ?, descricao = ?, preco = ? WHERE idacessorios = ?", [
+      await database.query("UPDATE acessorios SET nome = ?, tipo = ?, descricao = ?, preco = ?, img = ?, WHERE idacessorios = ?", [
         obj.nome,
         obj.tipo,
         obj.descricao,
