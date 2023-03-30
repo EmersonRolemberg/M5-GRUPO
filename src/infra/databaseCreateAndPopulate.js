@@ -14,7 +14,7 @@ database.connection.query(
 );
 
 database.connection.query(
-  "CREATE TABLE `instrumentos` (`idinstrumentos` INT NULL AUTO_INCREMENT, `nome` VARCHAR(50) NULL, `tipo` VARCHAR(12) NULL, `descricao` VARCHAR(900) NULL, `preco` FLOAT NULL, PRIMARY KEY(`idinstrumentos`) )",
+  "CREATE TABLE `instrumentos` (`idinstrumentos` INT NULL AUTO_INCREMENT, `nome` VARCHAR(50) NULL, `tipo` VARCHAR(12) NULL, `descricao` VARCHAR(500) NULL, `preco` FLOAT NULL,`img` VARCHAR(700) NULL, PRIMARY KEY(`idinstrumentos`) )",
   function (error, results, fields) {
     if (error) {
       console.log(error);
@@ -59,7 +59,7 @@ database.connection.query(
 );
 
 database.connection.query(
-  "INSERT INTO `instrumentos` (`idinstrumentos`, `nome`, `tipo`, `descricao`, `preco`) VALUES (1, 'Violino', 'Cordas', 'Violino profissional', 1200.0), (2, 'Guitarra', 'Cordas', 'Guitarra elétrica', 1500.0), (3, 'Bateria', 'Percussão', 'Bateria acústica', 2500.0)",
+  "INSERT INTO `instrumentos` (`idinstrumentos`, `nome`, `tipo`, `descricao`, `preco`, `img`) VALUES (1, 'Violino', 'Cordas', 'Violino profissional', 1200.0, 'https://eagle.com.br/wp-content/uploads/violino-profissional-eagle-master-series-vk644-frente-verso.jpg'), (2, 'Guitarra', 'Cordas', 'Guitarra elétrica', 1500.0, 'https://www.fender.com.br/imgs/produtos/gra/fender_10490653.jpg'), (3, 'Bateria', 'Percussão', 'Bateria acústica', 2500.0, 'https://www.equipo.com.br/wp-content/uploads/2020/02/Club-Jam.jpg')",
   function (error, results, fields) {
     if (error) {
       console.log(error);
@@ -70,8 +70,10 @@ database.connection.query(
 );
 
 
+
+
 database.connection.query(
-  "INSERT INTO `acessorios` (`idacessorios`, `nome`, `tipo`, `descricao`, `preco`) VALUES (1, 'Espaleira Para Violino 4/4', 'Cordas','Espaleira de violino regulável ', 44.00), (2, 'Pedal MXR Analog Chorus', 'Eletrica', 'Pedal analogico com circuitos bucket-brigade', 66.00), (3, 'Baqueta 7A Nirvana ', 'Percussão', 'Baqueta de madeira ', 28.00)",
+  "INSERT INTO `acessorios` (`idacessorios`, `nome`, `tipo`, `descricao`, `preco`) VALUES (1, 'Espaleira Para Violino 4/4', 'Cordas','Espaleira de violino regulável ', 44.00), (2, 'Pedal MXR Analog Chorus', 'Eletrica', 'Pedal analogico com circuitos bucket-brigade', 66.00), (3, 'Baqueta 7A Nirvana ', 'Percussão', 'Baqueta de madeira ', '28.00')",
   function (error, results, fields) {
     if (error) {
       console.log(error);
