@@ -7,7 +7,8 @@ const instrumentosModel = {
       nome: obj.nome,
       tipo: obj.tipo,
       descricao: obj.descricao,
-      preco: obj.preco
+      preco: obj.preco,
+      img: obj.img,
     };
   },
   };
