@@ -8,6 +8,7 @@ const clientesModel = {
       email: obj.email,
       senha:obj.senha,
       celular:obj.celular,
+      img: obj.img,
 
     };
   },
